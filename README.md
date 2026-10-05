@@ -1,7 +1,9 @@
 # DoAn_LapTrinhUDDD
 Thành Viên Nhóm
 1	Đặng Thị Trúc Đào	2274802010148	Nhóm trưởng	Dao.2274802010148@vlu.edu.vn
+
 2	Nguyễn Sỹ Đăng	2474802010085	Thành viên	Dang.2474802010085@vlu.edu.vn
+
 3	Võ Hoàng Tuấn	2474802016655	Thành viên	Tuan.2474802016655@vlu.edu.vn
 
 **1. Tên đề tài ứng dụng:**
