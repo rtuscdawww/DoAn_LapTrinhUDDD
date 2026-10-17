@@ -1,11 +1,11 @@
 # DoAn_LapTrinhUDDD
 Thành Viên Nhóm
 
-1	Đặng Thị Trúc Đào-2274802010148-Nhóm trưởng-Dao.2274802010148@vanlangni.vn
+1	Đặng Thị Trúc Đào-2274802010148-Nhóm trưởng-Dao.2274802010148@vanlanguni.vn
 
-2	Nguyễn Sỹ Đăng-2474802010085-Thành viên-Dang.2474802010085@vanlangni.vn
+2	Nguyễn Sỹ Đăng-2474802010085-Thành viên-Dang.2474802010085@vanlanguni.vn
 
-3	Võ Hoàng Tuấn-2474802016655-Thành viên-Tuan.2474802016655@vanlangni.vn
+3	Võ Hoàng Tuấn-2474802016655-Thành viên-Tuan.2474802016655@vanlanguni.vn
 
 **1. Tên đề tài ứng dụng:**
 **•Tiếng Việt:** Ứng dụng Hỗ trợ Tìm kiếm và Trao trả Đồ thất lạc cho Sinh viên Văn Lang – VLUFind
