@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "983007205889",
+    "project_id": "vlufind",
+    "storage_bucket": "vlufind.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:983007205889:android:bd9b24c51484c9df6f3e00",
+        "android_client_info": {
+          "package_name": "com.example.vlufind"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCLQ24FkqLb-_My41jTWfQgPMSOobFKptU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#F5F5F5">
 
-    <!-- Header / Tiêu đề Trang chủ -->
+    <!-- Header trang chủ -->
     <TextView
         android:id="@+id/tvHomeHeader"
         android:layout_width="0dp"
@@ -17,45 +17,54 @@
         android:textColor="#FFFFFF"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- Thanh tìm kiếm nhanh -->
+    <!-- Thanh tìm kiếm -->
     <EditText
         android:id="@+id/etSearchBox"
         android:layout_width="0dp"
         android:layout_height="48dp"
-        android:layout_margin="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
         android:background="@android:drawable/editbox_background"
         android:hint="Tìm kiếm đồ vật..."
+        android:inputType="text"
         android:paddingStart="12dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:paddingEnd="12dp"
+        android:singleLine="true"
+        app:layout_constraintTop_toBottomOf="@id/tvHomeHeader"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvHomeHeader" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- Danh sách hiển thị đồ vật (RecyclerView) -->
-    <!-- Nó sẽ được neo từ dưới thanh tìm kiếm tới đáy màn hình -->
+    <!-- Danh sách bài đăng -->
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewItems"
+        android:id="@+id/rvPosts"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="12dp"
+        android:clipToPadding="false"
+        android:paddingTop="4dp"
+        android:paddingBottom="88dp"
+        android:scrollbars="vertical"
+        app:layout_constraintTop_toBottomOf="@id/etSearchBox"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/etSearchBox" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- Nút Float để Đăng tin nhanh (Nằm ở góc phải dưới) -->
+    <!-- Nút đăng tin cố định ở góc dưới bên phải -->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabPostItem"
-        android:text=""
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="24dp"
-        android:backgroundTint="#B71C1C"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:contentDescription="Đăng bài viết"
         android:src="@android:drawable/ic_input_add"
+        android:elevation="8dp"
+        app:backgroundTint="#B71C1C"
         app:tint="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />

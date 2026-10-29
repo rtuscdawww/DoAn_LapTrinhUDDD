@@ -28,9 +28,9 @@ data class LostFoundPost(
     val title: String,
     val description: String,
     val category: ItemCategory,
-    val locationName: String,
-    val latitude: Double,
-    val longitude: Double,
+    val location: String,
+    val lat: Double,
+    val lng: Double,
     val postedBy: User,
     val postedAt: String,
     val status: PostStatus = PostStatus.OPEN

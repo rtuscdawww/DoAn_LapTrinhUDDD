@@ -21,19 +21,34 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <!-- Ảnh đồ vật tràn viền ngang -->
+            <!-- Ảnh đồ vật -->
             <ImageView
                 android:id="@+id/imgItemDetail"
                 android:layout_width="0dp"
                 android:layout_height="250dp"
-                android:scaleType="centerCrop"
                 android:background="#E0E0E0"
+                android:scaleType="centerCrop"
                 android:src="@android:drawable/ic_menu_gallery"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent" />
 
-            <!-- Thẻ Trạng thái (Nằm đè lên góc phải của ảnh) -->
+            <!-- Nút quay lại ở góc trên bên trái ảnh -->
+            <ImageButton
+                android:id="@+id/btnBack"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="12dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="Quay lại"
+                android:padding="12dp"
+                android:src="@android:drawable/ic_media_previous"
+                android:tint="#B71C1C"
+                app:layout_constraintStart_toStartOf="@id/imgItemDetail"
+                app:layout_constraintTop_toTopOf="@id/imgItemDetail" />
+
+            <!-- Thẻ trạng thái ở góc dưới bên phải ảnh -->
             <TextView
                 android:id="@+id/tvStatusBadge"
                 android:layout_width="wrap_content"
@@ -55,9 +70,9 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
                 android:text="Ví da nam màu đen"
+                android:textColor="#000000"
                 android:textSize="22sp"
                 android:textStyle="bold"
-                android:textColor="#000000"
                 app:layout_constraintTop_toBottomOf="@id/imgItemDetail"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent" />
@@ -70,13 +85,13 @@
                 android:layout_marginHorizontal="16dp"
                 android:layout_marginTop="8dp"
                 android:text="📍 Địa điểm: Tòa F.04.05 cơ sở 3"
-                android:textSize="16sp"
                 android:textColor="#555555"
+                android:textSize="16sp"
                 app:layout_constraintTop_toBottomOf="@id/tvDetailTitle"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent" />
 
-            <!-- Phân cách -->
+            <!-- Đường phân cách -->
             <View
                 android:id="@+id/dividerDetail"
                 android:layout_width="0dp"
@@ -87,19 +102,19 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent" />
 
-            <!-- Tiêu đề Mô tả -->
+            <!-- Tiêu đề mô tả -->
             <TextView
                 android:id="@+id/tvDescLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
                 android:text="Mô tả chi tiết:"
-                android:textStyle="bold"
                 android:textSize="16sp"
+                android:textStyle="bold"
                 app:layout_constraintTop_toBottomOf="@id/dividerDetail"
                 app:layout_constraintStart_toStartOf="parent" />
 
-            <!-- Nội dung Mô tả -->
+            <!-- Nội dung mô tả -->
             <TextView
                 android:id="@+id/tvDetailDescription"
                 android:layout_width="0dp"
@@ -107,17 +122,19 @@
                 android:layout_marginHorizontal="16dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="24dp"
-                android:text="Bên trong có thẻ sinh viên tên Nguyễn Văn A, một ít tiền mặt và thẻ giữ xe. Ai nhặt được xin liên hệ nhận hậu tạ ạ!"
-                android:textSize="16sp"
                 android:lineSpacingExtra="4dp"
-                app:layout_constraintTop_toBottomOf="@id/tvDescLabel"
+                android:text="Bên trong có thẻ sinh viên, một ít tiền mặt và thẻ giữ xe. Ai nhặt được xin liên hệ nhận hậu tạ!"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent" />
+                app:layout_constraintTop_toBottomOf="@id/tvDescLabel"
+                app:layout_constraintVertical_bias="0.03" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 
-    <!-- Nút Liên hệ (Ghim cố định ở đáy màn hình) -->
+    <!-- Nút liên hệ cố định ở đáy màn hình -->
     <Button
         android:id="@+id/btnContactOwner"
         android:layout_width="0dp"

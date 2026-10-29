@@ -7,18 +7,6 @@
     android:padding="24dp"
     android:background="#FFFFFF">
 
-    <!-- 1. Tiêu đề màn hình -->
-
-
-
-
-    <!-- 3. Ô nhập Mật khẩu -->
-
-    <!-- 4. Nút Quên mật khẩu -->
-
-    <!-- 5. Nút Đăng nhập chính -->
-
-
     <TextView
         android:id="@+id/tvLoginTitle"
         android:layout_width="wrap_content"
@@ -52,7 +40,7 @@
         android:layout_height="50dp"
         android:layout_marginTop="56dp"
         android:background="@android:drawable/editbox_background"
-        android:hint="Email sinh viên của bạn (@vanlanguni.vn)"
+        android:hint="Email của bạn (@vanlanguni.vn)"
         android:inputType="textEmailAddress"
         android:padding="12dp"
         app:layout_constraintEnd_toEndOf="parent"
