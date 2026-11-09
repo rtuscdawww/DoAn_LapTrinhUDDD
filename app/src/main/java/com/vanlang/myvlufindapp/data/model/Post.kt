@@ -16,5 +16,6 @@ data class Post(
     val contact: String,
     val authorName: String,
     val hiddenDetail: String? = null,
+    val ownerEmail: String = "",
     val createdAt: Long = System.currentTimeMillis()
 )

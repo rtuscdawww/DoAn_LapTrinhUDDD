@@ -17,6 +17,7 @@ data class PostDto(
     val contact: String? = null,
     val authorName: String? = null,
     val hiddenDetail: String? = null,
+    val ownerEmail: String? = null,
     val postedAt: Long? = null
 )
 
@@ -32,5 +33,22 @@ fun PostDto.toPost(): Post = Post(
     contact = contact.orEmpty(),
     authorName = authorName.orEmpty(),
     hiddenDetail = hiddenDetail,
+    ownerEmail = ownerEmail.orEmpty(),
     createdAt = postedAt ?: System.currentTimeMillis()
+)
+
+// Dùng khi gửi tin lên server. Không gửi id: để server tự cấp.
+fun Post.toDto(): PostDto = PostDto(
+    type = type.name,
+    status = status.name,
+    title = title,
+    category = category.name,
+    description = description,
+    imageUrl = imageUrl,
+    location = location,
+    contact = contact,
+    authorName = authorName,
+    hiddenDetail = hiddenDetail,
+    ownerEmail = ownerEmail,
+    postedAt = createdAt
 )
