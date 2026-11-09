@@ -14,4 +14,23 @@
     <string name="contact_button">Liên hệ</string>
     <string name="back_button">Quay lại</string>
     <string name="no_dialer">Không mở được ứng dụng gọi điện</string>
+    <string name="login_title">Đăng nhập</string>
+    <string name="register_title">Đăng ký</string>
+    <string name="email_hint">Email</string>
+    <string name="password_hint">Mật khẩu</string>
+    <string name="confirm_password_hint">Nhập lại mật khẩu</string>
+    <string name="login_button">Đăng nhập</string>
+    <string name="register_button">Đăng ký</string>
+    <string name="go_register">Chưa có tài khoản? Đăng ký</string>
+    <string name="go_login">Đã có tài khoản? Đăng nhập</string>
+    <string name="forgot_password">Quên mật khẩu?</string>
+    <string name="logout_button">Đăng xuất</string>
+    <string name="login_required_message">Bạn cần đăng nhập để dùng chức năng này</string>
+    <string name="profile_not_logged_in">Bạn chưa đăng nhập</string>
+    <string name="profile_logged_in_as">Đang đăng nhập: %1$s</string>
+    <string name="error_invalid_email">Email không hợp lệ</string>
+    <string name="error_short_password">Mật khẩu tối thiểu 6 ký tự</string>
+    <string name="error_password_mismatch">Mật khẩu nhập lại không khớp</string>
+    <string name="reset_email_sent">Đã gửi email đặt lại mật khẩu, hãy kiểm tra hộp thư</string>
+    <string name="enter_email_first">Hãy nhập email trước</string>
 </resources>

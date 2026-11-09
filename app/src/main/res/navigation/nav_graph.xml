@@ -39,4 +39,15 @@
         android:name="com.vanlang.myvlufindapp.ui.detail.PostDetailFragment"
         android:label="Chi tiết"
         tools:layout="@layout/fragment_post_detail" />
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.vanlang.myvlufindapp.ui.auth.LoginFragment"
+        android:label="Đăng nhập"
+        tools:layout="@layout/fragment_login" />
+
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.vanlang.myvlufindapp.ui.auth.RegisterFragment"
+        android:label="Đăng ký"
+        tools:layout="@layout/fragment_register" />
 </navigation>

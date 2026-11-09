@@ -14,6 +14,7 @@ import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.vanlang.myvlufindapp.R
 import com.vanlang.myvlufindapp.data.model.Post
+import com.vanlang.myvlufindapp.data.repository.AuthRepository
 import com.vanlang.myvlufindapp.databinding.FragmentPostDetailBinding
 import com.vanlang.myvlufindapp.ui.label
 import java.text.SimpleDateFormat
@@ -69,6 +70,12 @@ class PostDetailFragment : Fragment() {
             .into(binding.imageDetail)
 
         binding.buttonContact.setOnClickListener {
+            if (AuthRepository().currentUser == null) {
+                Toast.makeText(requireContext(), R.string.login_required_message, Toast.LENGTH_SHORT).show()
+                findNavController().navigate(R.id.loginFragment)
+                return@setOnClickListener
+            }
+
             val phone = post.contact.filter { it.isDigit() || it == '+' }
             try {
                 startActivity(Intent(Intent.ACTION_DIAL, Uri.parse("tel:$phone")))
