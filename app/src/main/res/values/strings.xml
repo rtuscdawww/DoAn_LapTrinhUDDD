@@ -33,4 +33,19 @@
     <string name="error_password_mismatch">Mật khẩu nhập lại không khớp</string>
     <string name="reset_email_sent">Đã gửi email đặt lại mật khẩu, hãy kiểm tra hộp thư</string>
     <string name="enter_email_first">Hãy nhập email trước</string>
+    <string name="post_type_lost">Tôi mất đồ</string>
+    <string name="post_type_found">Tôi nhặt được đồ</string>
+    <string name="post_category_label">Loại đồ</string>
+    <string name="post_title_hint">Tiêu đề</string>
+    <string name="post_description_hint">Mô tả chi tiết</string>
+    <string name="post_location_hint">Địa điểm (ví dụ: Căng tin, Thư viện)</string>
+    <string name="post_contact_hint">Số điện thoại liên hệ</string>
+    <string name="post_image_hint">Link ảnh (không bắt buộc)</string>
+    <string name="post_image_helper">Link trực tiếp tới ảnh, bắt đầu bằng https://</string>
+    <string name="post_hidden_hint">Chi tiết nhận dạng ẩn</string>
+    <string name="post_hidden_helper">Dùng để xác minh chủ đồ, sẽ không hiển thị công khai</string>
+    <string name="post_submit">Đăng tin</string>
+    <string name="post_success">Đăng tin thành công</string>
+    <string name="error_required">Không được để trống</string>
+    <string name="error_image_url">Link ảnh phải bắt đầu bằng https://</string>
 </resources>

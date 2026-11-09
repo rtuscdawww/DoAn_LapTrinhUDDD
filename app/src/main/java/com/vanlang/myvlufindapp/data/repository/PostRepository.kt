@@ -1,5 +1,6 @@
 package com.vanlang.myvlufindapp.data.repository
 
+import com.vanlang.myvlufindapp.data.remote.toDto
 import androidx.lifecycle.LiveData
 import com.vanlang.myvlufindapp.data.local.PostDao
 import com.vanlang.myvlufindapp.data.model.Post
@@ -35,5 +36,10 @@ class PostRepository(
         val remotePosts = postApi.getPosts()
         postDao.deleteAll()
         postDao.insertAll(remotePosts.map { it.toPost() })
+    }
+    // Gửi tin mới lên Web API; thành công thì lưu luôn vào Room (kèm id server cấp)
+    suspend fun createPost(post: Post) {
+        val created = postApi.createPost(post.toDto())
+        postDao.insert(created.toPost())
     }
 }

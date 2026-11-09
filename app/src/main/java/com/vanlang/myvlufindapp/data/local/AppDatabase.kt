@@ -7,7 +7,7 @@ import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import com.vanlang.myvlufindapp.data.model.Post
 
-@Database(entities = [Post::class], version = 1, exportSchema = false)
+@Database(entities = [Post::class], version = 2, exportSchema = false)
 @TypeConverters(Converters::class)
 abstract class AppDatabase : RoomDatabase() {
 
@@ -23,7 +23,10 @@ abstract class AppDatabase : RoomDatabase() {
                     context.applicationContext,
                     AppDatabase::class.java,
                     "vlufind.db"
-                ).build().also { INSTANCE = it }
+                )
+                    .fallbackToDestructiveMigration(true)
+                    .build()
+                    .also { INSTANCE = it }
             }
         }
     }
