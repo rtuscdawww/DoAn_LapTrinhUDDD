@@ -1,6 +1,7 @@
 package com.vanlang.myvlufindapp
 
 import android.os.Bundle
+import android.view.View
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -27,6 +28,14 @@ class MainActivity : AppCompatActivity() {
 
         val navHostFragment = supportFragmentManager
             .findFragmentById(R.id.nav_host_fragment) as NavHostFragment
-        binding.bottomNav.setupWithNavController(navHostFragment.navController)
+        val navController = navHostFragment.navController
+        binding.bottomNav.setupWithNavController(navController)
+
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            binding.bottomNav.visibility = when (destination.id) {
+                R.id.loginFragment, R.id.registerFragment -> View.GONE
+                else -> View.VISIBLE
+            }
+        }
     }
 }
