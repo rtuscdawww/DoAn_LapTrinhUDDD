@@ -50,4 +50,10 @@
         android:name="com.vanlang.myvlufindapp.ui.auth.RegisterFragment"
         android:label="Đăng ký"
         tools:layout="@layout/fragment_register" />
+
+    <fragment
+        android:id="@+id/myPostsFragment"
+        android:name="com.vanlang.myvlufindapp.ui.myposts.MyPostsFragment"
+        android:label="@string/my_posts_title"
+        tools:layout="@layout/fragment_my_posts" />
 </navigation>

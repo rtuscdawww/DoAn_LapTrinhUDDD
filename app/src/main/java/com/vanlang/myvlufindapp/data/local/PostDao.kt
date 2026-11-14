@@ -49,4 +49,7 @@ interface PostDao {
 
     @Query("DELETE FROM posts")
     suspend fun deleteAll()
+
+    @Query("SELECT * FROM posts WHERE ownerEmail = :email ORDER BY createdAt DESC")
+    fun getPostsByOwner(email: String): LiveData<List<Post>>
 }

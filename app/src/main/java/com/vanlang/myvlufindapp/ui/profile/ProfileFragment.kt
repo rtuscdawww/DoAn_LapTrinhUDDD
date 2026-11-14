@@ -35,12 +35,17 @@ class ProfileFragment : Fragment() {
         val user = authRepository.currentUser
         if (user == null) {
             binding.textProfileInfo.setText(R.string.profile_not_logged_in)
+            binding.buttonMyPosts.visibility = View.GONE
             binding.buttonProfileAction.setText(R.string.login_button)
             binding.buttonProfileAction.setOnClickListener {
                 findNavController().navigate(R.id.loginFragment)
             }
         } else {
             binding.textProfileInfo.text = getString(R.string.profile_logged_in_as, user.email)
+            binding.buttonMyPosts.visibility = View.VISIBLE
+            binding.buttonMyPosts.setOnClickListener {
+                findNavController().navigate(R.id.myPostsFragment)
+            }
             binding.buttonProfileAction.setText(R.string.logout_button)
             binding.buttonProfileAction.setOnClickListener {
                 authRepository.logout()

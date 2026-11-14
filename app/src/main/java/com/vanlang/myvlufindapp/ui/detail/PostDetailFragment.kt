@@ -12,8 +12,11 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.vanlang.myvlufindapp.R
 import com.vanlang.myvlufindapp.data.model.Post
+import com.vanlang.myvlufindapp.data.model.PostStatus
+import com.vanlang.myvlufindapp.data.model.PostType
 import com.vanlang.myvlufindapp.data.repository.AuthRepository
 import com.vanlang.myvlufindapp.databinding.FragmentPostDetailBinding
 import com.vanlang.myvlufindapp.ui.label
@@ -50,6 +53,10 @@ class PostDetailFragment : Fragment() {
             post ?: return@observe
             showPost(post)
         }
+
+        viewModel.error.observe(viewLifecycleOwner) { message ->
+            message?.let { Toast.makeText(requireContext(), it, Toast.LENGTH_LONG).show() }
+        }
     }
 
     private fun showPost(post: Post) {
@@ -69,6 +76,21 @@ class PostDetailFragment : Fragment() {
             .centerCrop()
             .into(binding.imageDetail)
 
+        // Chỉ chủ tin mới thấy chi tiết ẩn và nút cập nhật trạng thái
+        val email = AuthRepository().currentUser?.email
+        val isOwner = email != null && email == post.ownerEmail
+
+        val hidden = post.hiddenDetail
+        if (isOwner && !hidden.isNullOrEmpty()) {
+            binding.textDetailHidden.visibility = View.VISIBLE
+            binding.textDetailHidden.text = getString(R.string.detail_hidden, hidden)
+        } else {
+            binding.textDetailHidden.visibility = View.GONE
+        }
+
+        binding.buttonChangeStatus.visibility = if (isOwner) View.VISIBLE else View.GONE
+        binding.buttonChangeStatus.setOnClickListener { showStatusDialog(post) }
+
         binding.buttonContact.setOnClickListener {
             if (AuthRepository().currentUser == null) {
                 Toast.makeText(requireContext(), R.string.login_required_message, Toast.LENGTH_SHORT).show()
@@ -83,6 +105,25 @@ class PostDetailFragment : Fragment() {
                 Toast.makeText(requireContext(), R.string.no_dialer, Toast.LENGTH_SHORT).show()
             }
         }
+    }
+
+    private fun showStatusDialog(post: Post) {
+        // Tin mất đồ: Đang tìm / Đã tìm lại. Tin nhặt được: Chờ nhận / Đã trao trả.
+        val options = when (post.type) {
+            PostType.LOST -> listOf(PostStatus.SEARCHING, PostStatus.FOUND_BACK)
+            PostType.FOUND -> listOf(PostStatus.WAITING, PostStatus.RETURNED)
+        }
+        val labels = options.map { it.label() }.toTypedArray()
+        val current = options.indexOf(post.status).coerceAtLeast(0)
+
+        MaterialAlertDialogBuilder(requireContext())
+            .setTitle(R.string.change_status_title)
+            .setSingleChoiceItems(labels, current) { dialog, which ->
+                dialog.dismiss()
+                if (options[which] != post.status) viewModel.changeStatus(post, options[which])
+            }
+            .setNegativeButton(android.R.string.cancel, null)
+            .show()
     }
 
     private fun formatDate(millis: Long): String =
