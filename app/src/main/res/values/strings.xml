@@ -53,4 +53,10 @@
     <string name="change_status_button">Cập nhật trạng thái</string>
     <string name="change_status_title">Chọn trạng thái mới</string>
     <string name="detail_hidden">Chi tiết nhận dạng (chỉ bạn thấy): %1$s</string>
+    <string name="search_hint">Tìm theo từ khóa (tên đồ, mô tả, địa điểm)</string>
+    <string name="filter_all">Tất cả</string>
+    <string name="filter_lost">Mất đồ</string>
+    <string name="filter_found">Nhặt được</string>
+    <string name="search_empty">Không tìm thấy tin phù hợp</string>
+    <string name="category_all">Tất cả loại đồ</string>
 </resources>
