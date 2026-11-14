@@ -48,4 +48,9 @@
     <string name="post_success">Đăng tin thành công</string>
     <string name="error_required">Không được để trống</string>
     <string name="error_image_url">Link ảnh phải bắt đầu bằng https://</string>
+    <string name="my_posts_title">Bài đăng của tôi</string>
+    <string name="my_posts_empty">Bạn chưa có bài đăng nào</string>
+    <string name="change_status_button">Cập nhật trạng thái</string>
+    <string name="change_status_title">Chọn trạng thái mới</string>
+    <string name="detail_hidden">Chi tiết nhận dạng (chỉ bạn thấy): %1$s</string>
 </resources>
