@@ -11,7 +11,6 @@ import com.vanlang.myvlufindapp.data.model.Post
 import com.vanlang.myvlufindapp.data.model.PostType
 import com.vanlang.myvlufindapp.data.remote.RetrofitClient
 import com.vanlang.myvlufindapp.data.repository.PostRepository
-import java.text.Normalizer
 
 class SearchViewModel(application: Application) : AndroidViewModel(application) {
 
@@ -48,25 +47,8 @@ class SearchViewModel(application: Application) : AndroidViewModel(application) 
 
     private fun applyFilters() {
         val all = repository.allPosts.value.orEmpty()
-        val key = normalize(keyword.value.orEmpty().trim())
-        val type = typeFilter.value
-        val category = categoryFilter.value
-
-        _results.value = all.filter { post ->
-            (type == null || post.type == type) &&
-                    (category == null || post.category == category) &&
-                    (key.isEmpty() ||
-                            normalize(post.title).contains(key) ||
-                            normalize(post.description).contains(key) ||
-                            normalize(post.location).contains(key))
+        _results.value = all.filter {
+            SearchFilter.matches(it, keyword.value.orEmpty(), typeFilter.value, categoryFilter.value)
         }
     }
-
-    // Bỏ dấu và chữ hoa để tìm "vi" ra "ví", "dien thoai" ra "điện thoại"
-    private fun normalize(text: String): String =
-        Normalizer.normalize(text, Normalizer.Form.NFD)
-            .replace(Regex("\\p{InCombiningDiacriticalMarks}+"), "")
-            .replace('đ', 'd')
-            .replace('Đ', 'D')
-            .lowercase()
 }
