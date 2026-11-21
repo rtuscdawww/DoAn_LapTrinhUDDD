@@ -10,7 +10,7 @@ object RetrofitClient {
     private const val BASE_URL = "https://6aed85dbfc3b911e6fd64860.mockapi.io/"
 
     private val logging = HttpLoggingInterceptor().apply {
-        level = HttpLoggingInterceptor.Level.BODY
+        level = HttpLoggingInterceptor.Level.BASIC
     }
 
     private val okHttpClient = OkHttpClient.Builder()
