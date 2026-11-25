@@ -4,12 +4,15 @@ import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.vlufind.R
+import com.example.vlufind.data.FavoriteManager
 import com.example.vlufind.databinding.ItemPostBinding
 import com.example.vlufind.model.LostFoundPost
 import com.example.vlufind.model.PostType
 
 class PostAdapter(
     private var postList: List<LostFoundPost>,
+    private val onFavoriteChanged: (() -> Unit)? = null,
     private val onPostClick: (LostFoundPost) -> Unit
 ) : RecyclerView.Adapter<PostAdapter.PostViewHolder>() {
 
@@ -36,13 +39,12 @@ class PostAdapter(
     ) {
         val post = postList[position]
         val binding = holder.binding
+        val context = binding.root.context
 
-        // Hiển thị thông tin bài đăng
         binding.tvPostTitle.text = post.title
         binding.tvPostDescription.text = post.description
         binding.tvPostLocation.text = "Địa điểm: ${post.location}"
 
-        // Hiển thị loại tin
         if (post.type == PostType.LOST) {
             binding.tvPostType.text = "BỊ MẤT"
             binding.tvPostType.setTextColor(
@@ -55,9 +57,53 @@ class PostAdapter(
             )
         }
 
-        // Nhấn vào item để mở màn hình chi tiết
+        updateFavoriteIcon(
+            binding,
+            FavoriteManager.isFavorite(context, post.id)
+        )
+
+        binding.btnFavorite.setOnClickListener {
+            val isFavorite = FavoriteManager.toggleFavorite(
+                context,
+                post.id
+            )
+
+            updateFavoriteIcon(binding, isFavorite)
+
+            onFavoriteChanged?.invoke()
+        }
+
         binding.root.setOnClickListener {
             onPostClick(post)
+        }
+    }
+
+    private fun updateFavoriteIcon(
+        binding: ItemPostBinding,
+        isFavorite: Boolean
+    ) {
+        if (isFavorite) {
+            binding.btnFavorite.setImageResource(
+                R.drawable.ic_favorite
+            )
+
+            binding.btnFavorite.setColorFilter(
+                Color.parseColor("#B71C1C")
+            )
+
+            binding.btnFavorite.contentDescription =
+                "Bỏ yêu thích"
+        } else {
+            binding.btnFavorite.setImageResource(
+                R.drawable.ic_favorite_border
+            )
+
+            binding.btnFavorite.setColorFilter(
+                Color.parseColor("#757575")
+            )
+
+            binding.btnFavorite.contentDescription =
+                "Yêu thích"
         }
     }
 
