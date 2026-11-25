@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Nền khi tab được chọn -->
+    <item android:state_checked="true">
+        <!-- inset giúp thu nhỏ nền lại một chút để không bị tràn lề, tạo hình viên thuốc (pill) đẹp mắt -->
+        <inset android:insetLeft="12dp" android:insetRight="12dp" android:insetTop="6dp" android:insetBottom="6dp">
+            <shape android:shape="rectangle">
+                <solid android:color="#FFEBEE" /> <!-- Màu đỏ nhạt -->
+                <corners android:radius="24dp" /> <!-- Độ bo tròn góc -->
+            </shape>
+        </inset>
+    </item>
+    <!-- Trạng thái bình thường: Nền trong suốt -->
+    <item android:drawable="@android:color/transparent" />
+</selector>
