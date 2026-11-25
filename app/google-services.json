@@ -1,21 +1,21 @@
 {
   "project_info": {
-    "project_number": "484437410647",
-    "project_id": "vlufind-e53cff4d",
-    "storage_bucket": "vlufind-e53cff4d.firebasestorage.app"
+    "project_number": "983007205889",
+    "project_id": "vlufind",
+    "storage_bucket": "vlufind.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:484437410647:android:97f6f6647edda4d0c43412",
+        "mobilesdk_app_id": "1:983007205889:android:bd9b24c51484c9df6f3e00",
         "android_client_info": {
-          "package_name": "com.vanlang.myvlufindapp"
+          "package_name": "com.example.vlufind"
         }
       },
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyAYcqAI00dYhgf1-ZL54ArLDQO45-kMHwY"
+          "current_key": "AIzaSyCLQ24FkqLb-_My41jTWfQgPMSOobFKptU"
         }
       ],
       "services": {

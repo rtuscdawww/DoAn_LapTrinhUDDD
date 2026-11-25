@@ -22,6 +22,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "MyVLUFind_App"
+rootProject.name = "VLUFind"
 include(":app")
- 
