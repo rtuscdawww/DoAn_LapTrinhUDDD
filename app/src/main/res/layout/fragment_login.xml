@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="24dp"
@@ -33,7 +34,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- 2. Ô nhập Email sinh viên -->
     <EditText
         android:id="@+id/etEmail"
         android:layout_width="0dp"
@@ -62,18 +62,31 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/etEmail" />
 
+    <!-- CheckBox Nhớ mật khẩu được neo sang TRÁI -->
+    <CheckBox
+        android:id="@+id/cbRememberMe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="Nhớ mật khẩu"
+        android:textColor="#333333"
+        app:buttonTint="#333333"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etPassword" />
+
+    <!-- Nút Quên mật khẩu được neo sang PHẢI và canh giữa theo CheckBox -->
     <TextView
         android:id="@+id/tvForgotPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="12dp"
         android:text="Quên mật khẩu?"
         android:textStyle="bold"
         android:textColor="#FF0000"
+        app:layout_constraintBottom_toBottomOf="@id/cbRememberMe"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/etPassword" />
+        app:layout_constraintTop_toTopOf="@id/cbRememberMe" />
 
+    <!-- Nút Đăng nhập được neo xuống dưới CheckBox -->
     <Button
         android:id="@+id/btnLogin"
         android:layout_width="0dp"
@@ -83,11 +96,9 @@
         android:text="Đăng nhập"
         android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvForgotPassword" />
+        app:layout_constraintTop_toBottomOf="@id/cbRememberMe" />
 
-    <!-- 6. Khu vực chuyển sang Đăng ký -->
     <LinearLayout
         android:id="@+id/llRegisterPrompt"
         android:layout_width="wrap_content"
@@ -99,7 +110,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
-        <!-- Dòng chữ thường -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -107,7 +117,6 @@
             android:textColor="#555555"
             android:textSize="14sp" />
 
-        <!-- Nút bấm Đăng ký ngay -->
         <Button
             android:id="@+id/btnGoToRegister"
             android:layout_width="wrap_content"

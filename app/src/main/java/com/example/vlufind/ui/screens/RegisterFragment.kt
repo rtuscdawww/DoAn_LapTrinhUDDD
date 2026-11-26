@@ -11,7 +11,8 @@ import com.example.vlufind.databinding.FragmentRegisterBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.UserProfileChangeRequest
 import com.google.firebase.FirebaseApp
-
+import com.example.vlufind.R
+import com.google.android.material.bottomnavigation.BottomNavigationView
 class RegisterFragment : Fragment() {
     private var _binding: FragmentRegisterBinding? = null
     private val binding get() = _binding!!
@@ -51,6 +52,14 @@ class RegisterFragment : Fragment() {
         // Quay về màn hình đăng nhập
         binding.tvGoToLogin.setOnClickListener {
             parentFragmentManager.popBackStack()
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        val bottomNav = requireActivity().findViewById<BottomNavigationView>(R.id.bottom_navigation)
+        if (bottomNav != null) {
+            bottomNav.visibility = View.GONE
         }
     }
 

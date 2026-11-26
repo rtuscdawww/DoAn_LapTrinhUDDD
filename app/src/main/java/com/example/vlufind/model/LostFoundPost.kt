@@ -33,6 +33,7 @@ data class LostFoundPost(
     val lng: Double,
     val postedBy: User,
     val postedAt: String,
-    val status: PostStatus = PostStatus.OPEN
+    val status: PostStatus = PostStatus.OPEN,
+    val imageUri: String? = null
 )
 

@@ -61,6 +61,7 @@
                 android:id="@+id/rbLost"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:buttonTint="#B71C1C"
                 android:text="Bị mất"
                 android:checked="true"
                 android:layout_weight="1"/>
@@ -68,6 +69,7 @@
                 android:id="@+id/rbFound"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:buttonTint="#B71C1C"
                 android:text="Nhặt được"
                 android:layout_weight="1"/>
         </RadioGroup>
@@ -108,7 +110,7 @@
             android:layout_marginTop="32dp"
             android:layout_marginBottom="24dp"
             android:backgroundTint="#B71C1C"
-            android:text="Xem trước &amp; Đăng"
+            android:text="Đăng Tin"
             android:textColor="#FFFFFF"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
